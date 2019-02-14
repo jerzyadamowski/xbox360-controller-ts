@@ -1,0 +1,37 @@
+{
+  "name": "xbox360-controller-ts",
+  "version": "0.1.0",
+  "description": "xbox360 controller in typescript implementation",
+  "main": "./lib/index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo 'no test - now'",
+    "start": "node -r ts-node/register/transpile-only src/examples/example.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerzyadamowski/xbox360-controller-ts.git"
+  },
+  "keywords": [
+    "xbox360",
+    "typescript",
+    "controller",
+    "wireless"
+  ],
+  "author": "Jerzy Adamowski (jerzyadamowski@outlook.com)",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/jerzyadamowski/xbox360-controller-ts/issues"
+  },
+  "homepage": "https://github.com/jerzyadamowski/xbox360-controller-ts#readme",
+  "dependencies": {
+    "@types/node": ">=8.0.0",
+    "gamepad": "^1.6.0"
+  },
+  "devDependencies": {
+    "typescript": ">2.0.0",
+    "ts-node": ">=8.0.0"
+  }
+}
