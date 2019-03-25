@@ -1,9 +1,16 @@
 import { EventEmitter } from "events";
 import * as Gamepad from "gamepad";
 import { Xbox360Settings } from "./xbox360-settings";
+import { GamepadAxis, GamepadButton } from "./xbox360-model"
 
 export class Xbox360Controller extends EventEmitter {
   private options: Xbox360Settings;
+
+  public moveHandler?: (value: GamepadAxis) => void;
+
+  public pressHandler?: (value: GamepadButton) => void;
+
+  public releaseHandler?: (value: GamepadButton) => void;
 
   constructor(options?: Xbox360Settings) {
     super();
@@ -29,27 +36,23 @@ export class Xbox360Controller extends EventEmitter {
 
     // Listen for move events on all Gamepads
     Gamepad.on("move", (id, axis, value) => {
-      console.log("move", {
-        id,
-        axis,
-        value,
-      });
+      let move = { id, axis, value};
+      console.log("move", move);
+      if (this.moveHandler) this.moveHandler(move);
     });
 
     // Listen for button up events on all Gamepads
     Gamepad.on("up", (id, num) => {
-      console.log("up", {
-        id,
-        num,
-      });
+      let button = { id, num };
+      console.log("up", button);
+      if (this.releaseHandler) this.releaseHandler(button);
     });
 
     // Listen for button down events on all Gamepads
     Gamepad.on("down", (id, num) => {
-      console.log("down", {
-        id,
-        num,
-      });
+      let button = { id, num };
+      console.log("down", button);
+      if (this.pressHandler) this.pressHandler(button);
     });
   }
 

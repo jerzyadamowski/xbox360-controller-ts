@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "echo 'no test - now'",
+    "build": "tsc",
     "start": "node -r ts-node/register/transpile-only src/examples/example.ts"
   },
   "repository": {
