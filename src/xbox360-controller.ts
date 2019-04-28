@@ -1,16 +1,16 @@
 import { EventEmitter } from "events";
 import * as Gamepad from "gamepad";
+import { GamepadAxis, GamepadButton } from "./xbox360-model";
 import { Xbox360Settings } from "./xbox360-settings";
-import { GamepadAxis, GamepadButton } from "./xbox360-model"
 
 export class Xbox360Controller extends EventEmitter {
-  private options: Xbox360Settings;
-
   public moveHandler?: (value: GamepadAxis) => void;
 
   public pressHandler?: (value: GamepadButton) => void;
 
   public releaseHandler?: (value: GamepadButton) => void;
+
+  private options: Xbox360Settings;
 
   constructor(options?: Xbox360Settings) {
     super();
